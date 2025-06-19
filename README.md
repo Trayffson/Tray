@@ -22,6 +22,17 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
+Também é possível executar a aplicação em um contêiner Docker:
+
+```
+docker build -t tray-api .
+docker run -p 8000:8000 \
+  -e AWS_ACCESS_KEY_ID=<seu_access_key> \
+  -e AWS_SECRET_ACCESS_KEY=<seu_secret_key> \
+  -e AWS_REGION=<regiao> \
+  -e BUCKET_NAME=qrcode-test-jd tray-api
+```
+
 ## Uso
 
 Envie um POST para `/upload/<nomeArquivo>` contendo o payload JWS no corpo da requisição.
