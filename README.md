@@ -39,3 +39,6 @@ Envie um POST para `/upload/<nomeArquivo>` contendo o payload JWS no corpo da re
 O cabeçalho `Content-Type` deve ser obrigatoriamente `application/jose`.
 O nome do arquivo será o fragmento final da URL e não deve conter extensão.
 O payload será salvo na raiz do bucket S3 configurado.
+Também é possível enviar o código PIX completo usando o endpoint `/upload_by_qr`,
+que recebe o parâmetro `qr_string` contendo o QR Code e utiliza o campo 25 para
+definir o caminho do objeto no S3.
